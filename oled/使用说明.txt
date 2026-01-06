@@ -1,0 +1,14 @@
+CH32V系列中使用-软件模拟iic-硬件搞不明白了
+1.在主函数确保IIC所用到的双引脚完成初始化
+2.在oled.h中修改IIC引脚的信息(格式如下)
+#define OLED_SCLK_Clr() GPIO_ResetBits(GPIOB,GPIO_Pin_11)//SCL
+#define OLED_SCLK_Set() GPIO_SetBits(GPIOB,GPIO_Pin_11)
+#define OLED_SDIN_Clr() GPIO_ResetBits(GPIOB,GPIO_Pin_10)//SDA
+#define OLED_SDIN_Set() GPIO_SetBits(GPIOB,GPIO_Pin_10)
+3.记得导入OLED.h库，和添加路径
+#include "oled.h"
+4.记得初始化OLED
+OLED_Init();
+OLED_Clear();
+
+
